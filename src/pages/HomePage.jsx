@@ -2,30 +2,17 @@ import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import HomePageAddBtn from "../components/HomePageAddBtn";
 import SearchBar from "../components/SearchBar";
+import NoteList from "../components/NoteList";
+import { getActiveNotes } from "../utils/local-data";
 
 function HomePage() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const keyword = searchParams.get("keyword") || "";
-  const [notes, setNotes] = useState([]); // Assuming you have a state for notes
-
-  const handleSearch = (newKeyword) => {
-    setSearchParams({ keyword: newKeyword });
-    // Filter notes based on the new keyword
-    const filteredNotes = notes.filter((note) =>
-      note.title.toLowerCase().includes(newKeyword.toLowerCase())
-    );
-    setNotes(filteredNotes);
-  };
+  const [notes, setNotes] = useState(getActiveNotes());
 
   return (
     <div className="homepage">
-      <SearchBar keyword={keyword} setKeyword={handleSearch} />
+      <SearchBar />
+      <NoteList notes={notes} />
       <HomePageAddBtn />
-      <ul>
-        {notes.map((note) => (
-          <li key={note.id}>{note.title}</li>
-        ))}
-      </ul>
     </div>
   );
 }

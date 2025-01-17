@@ -100,17 +100,71 @@ button {
 
 .homepage{
   display: flex;
-  padding: 20px 1rem;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 1rem;
+  padding: 20px 1rem;
 }
 
 .search-bar {
-  margin-top: 20px;
+  margin-top: 8px;
   width: 50%;
-  height: 2rem;
+  height: 2.5rem;
   font-size: medium;
   padding: 12px 16px;
   border-radius: 5px;
   border: none;
   box-shadow: var(--shadowbox);
+}
+
+.search-bar:focus {
+  outline-color: grey;
+}
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.note-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 14px 10px 10px 10px;
+  background-color: white;
+  border-radius: 5px;
+  border-top: orangered 5px solid;
+  box-shadow: var(--shadowbox);
+  width: 280px;
+  height: 200px;
+  max-width: 250px;
+  max-height: 300px;
+  cursor: pointer;
+}
+
+.note-item:hover {
+  background-color: lightgrey;
+  transition: all 0.5s;
+}
+
+.note-item h3 {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.note-item_desc {
+  font-size: 1rem;
+}
+
+.note-item_date {
+  font-size: 0.75rem;
+  color: grey;
+}
+
+.text-center {
+  text-align: center;
 }
