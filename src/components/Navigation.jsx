@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiHome, FiPlusCircle } from "react-icons/fi";
 import { FiArchive } from "react-icons/fi";
+import PropTypes from "prop-types";
 
 const Navigation = () => {
   const location = useLocation();
@@ -29,6 +30,10 @@ const Navigation = () => {
       </ul>
     </nav>
   );
+};
+
+Navigation.propTypes = {
+  location: PropTypes.object.isRequired,
 };
 
 export default Navigation;

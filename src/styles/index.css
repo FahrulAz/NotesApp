@@ -141,14 +141,14 @@ button {
   box-shadow: var(--shadowbox);
   width: 280px;
   height: 200px;
-  max-width: 250px;
-  max-height: 300px;
+  max-height: 200px;
   cursor: pointer;
 }
 
 .note-item:hover {
   background-color: lightgrey;
   transition: all 0.5s;
+  scale: 1.03;
 }
 
 .note-item h3 {

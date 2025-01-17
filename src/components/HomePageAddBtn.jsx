@@ -1,6 +1,7 @@
 import React from "react";
 import { RiPlayListAddFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function HomePageAddBtn() {
   const navigate = useNavigate();
@@ -17,5 +18,9 @@ function HomePageAddBtn() {
     </div>
   );
 }
+
+HomePageAddBtn.propTypes = {
+  navigate: PropTypes.func.isRequired,
+};
 
 export default HomePageAddBtn;

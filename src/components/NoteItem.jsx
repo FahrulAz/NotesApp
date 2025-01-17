@@ -1,5 +1,6 @@
 import React from "react";
 import { showFormattedDate } from "../utils/index";
+import PropTypes from "prop-types";
 
 const limitWords = (text, limit) => {
   const words = text.split(" ");
@@ -22,5 +23,11 @@ function NoteItem({ title, body, createdAt }) {
     </div>
   );
 }
+
+NoteItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+};
 
 export default NoteItem;
