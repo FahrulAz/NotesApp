@@ -308,3 +308,90 @@ button {
     width: 0;
   }
 }
+
+/* addpage */
+.addpage {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addpage h1 {
+  margin-bottom: 1rem;
+}
+
+.addpage form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.addpage form div {
+  margin-bottom: 1rem;
+}
+
+.addpage form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.addpage form input,
+.addpage form textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.addpage form input {
+  font-size: 2.5rem;
+}
+
+.addpage form textarea {
+  height: 300px; 
+}
+
+.addpage form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.addpage form button:hover {
+  background-color: #0056b3;
+}
+
+.errorpage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+}
+
+.empty {
+  font-size: 2rem;
+  color: black;
+  margin-top: 10rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .addpage {
+    padding: 1rem;
+  }
+
+  .addpage form {
+    width: 100%;
+  }
+}

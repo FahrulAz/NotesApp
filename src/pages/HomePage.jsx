@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import NoteList from "../components/NoteList";
 import { getActiveNotes } from "../utils/local-data";
 import HomePageAddBtn from "../components/HomePageAddBtn";
+import PropTypes from "prop-types";
 
 function HomePage() {
   const [notes, setNotes] = useState(getActiveNotes());
@@ -24,10 +25,18 @@ function HomePage() {
     <div className="homepage">
       <h1>Active Notes</h1>
       <SearchBar keyword={keyword} setKeyword={handleKeywordChange} />
-      <NoteList notes={filteredNotes} />
+      {filteredNotes.length > 0 ? (
+        <NoteList notes={filteredNotes} />
+      ) : (
+        <p className="empty">Notes Is empty</p>
+      )}
       <HomePageAddBtn />
     </div>
   );
 }
+
+HomePage.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default HomePage;

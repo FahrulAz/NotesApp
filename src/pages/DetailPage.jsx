@@ -10,6 +10,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { showFormattedDate } from "../utils";
 import DetailPageActBtn from "../components/DetailPageActBtn";
 import Toast from "../components/Toast";
+import PropTypes from "prop-types";
 
 function DetailPage() {
   const { id } = useParams();
@@ -96,5 +97,10 @@ function DetailPage() {
     </div>
   );
 }
+
+DetailPage.propTypes = {
+  id: PropTypes.string.isRequired,
+  navigate: PropTypes.func.isRequired,
+};
 
 export default DetailPage;
