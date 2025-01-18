@@ -2,13 +2,13 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiHome, FiPlusCircle } from "react-icons/fi";
 import { FiArchive } from "react-icons/fi";
-import PropTypes from "prop-types";
 
 const Navigation = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isArchivePage = location.pathname === "/archive";
   const isAddPage = location.pathname === "/new";
+  const isDetailPage = location.pathname.includes("/notes/");
 
   return (
     <nav className="navigation">
@@ -20,7 +20,7 @@ const Navigation = () => {
             </Link>
           </li>
         )}
-        {(isArchivePage || isAddPage) && (
+        {(isArchivePage || isAddPage || isDetailPage) && (
           <li>
             <Link to="/">
               <FiHome className="navigation_icon" />
@@ -30,10 +30,6 @@ const Navigation = () => {
       </ul>
     </nav>
   );
-};
-
-Navigation.propTypes = {
-  location: PropTypes.object.isRequired,
 };
 
 export default Navigation;

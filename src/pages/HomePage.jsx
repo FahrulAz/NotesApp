@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import NoteList from "../components/NoteList";
 import { getActiveNotes } from "../utils/local-data";
@@ -6,7 +7,8 @@ import HomePageAddBtn from "../components/HomePageAddBtn";
 
 function HomePage() {
   const [notes, setNotes] = useState(getActiveNotes());
-  const [keyword, setKeyword] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const keyword = searchParams.get("keyword") || "";
 
   const filteredNotes = keyword
     ? notes.filter((note) =>
@@ -14,9 +16,14 @@ function HomePage() {
       )
     : notes;
 
+  const handleKeywordChange = (newKeyword) => {
+    setSearchParams({ keyword: newKeyword });
+  };
+
   return (
     <div className="homepage">
-      <SearchBar keyword={keyword} setKeyword={setKeyword} />
+      <h1>Active Notes</h1>
+      <SearchBar keyword={keyword} setKeyword={handleKeywordChange} />
       <NoteList notes={filteredNotes} />
       <HomePageAddBtn />
     </div>
