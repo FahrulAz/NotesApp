@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { addNote } from "../utils/local-data";
 import Toast from "../components/Toast";
 import PropTypes from "prop-types";
+import LanguageContext from "../contexts/LanguageContext";
 
 function AddPage() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [toastMessage, setToastMessage] = useState(null);
   const navigate = useNavigate();
+  const { language } = useContext(LanguageContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,11 +23,11 @@ function AddPage() {
 
   return (
     <div className="addpage">
-      <h1>Add New Note</h1>
+      <h1>{language === "EN" ? "Add New Note" : "Tambah Catatan Baru"}</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <input
-            placeholder="Title..."
+            placeholder={language === "EN" ? "Title" : "Judul"}
             className="addpage_title"
             type="text"
             id="title"
@@ -36,7 +38,9 @@ function AddPage() {
         </div>
         <div>
           <textarea
-            placeholder="Your note..."
+            placeholder={
+              language === "EN" ? "Your notes ..." : "Isi Catatan Kamu ..."
+            }
             className="addpage_desc"
             id="body"
             value={body}

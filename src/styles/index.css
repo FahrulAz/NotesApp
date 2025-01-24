@@ -1,5 +1,13 @@
 :root {
   --shadowbox: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --font-color: #333;
+  --bg-color: whitesmoke;
+}
+
+[data-theme='dark'] {
+  --font-color: whitesmoke;
+  --bg-color: #333;
+  --bg-search: #817979;
 }
 
 * {
@@ -10,7 +18,9 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: whitesmoke;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  transition: all 0.5s;
 }
 
 .container {
@@ -27,12 +37,26 @@ body {
 
 .contact-app_header h1 {
   font-size: 1.6rem;
-  color: black;
+  color: var(--font-color);
 }
 
 .contact-app_logo {
   display: flex;
   align-items: center;
+}
+
+.contact-app_actions{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  font-size: 24px;
+  color: var(--font-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navigation ul li {
@@ -42,12 +66,12 @@ body {
 
 .navigation ul li a {
   font-size: 28px;
-  color: black;
+  color: var(--font-color);
 }
 
 .icon {
   font-size: 28px;
-  color: black;
+  color: var(--font-color);
 }
 
 .homepage_addbtn {
@@ -55,7 +79,7 @@ body {
   bottom: 0;
   right: 0;
   margin: 0 4rem 2rem 0;
-  background-color: black;
+  background-color: var(--font-color);
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -65,7 +89,7 @@ body {
   z-index: 30;
 }
 
-.navigation_icon:hover {
+.navigation_icon:hover, .theme-toggle:hover {
   color: orangered;
   transition: all 0.3s;
 }
@@ -95,7 +119,7 @@ button {
 
 .homepage_addbtn_icon {
   font-size: 1.5rem;
-  color: white;
+  color: var(--bg-color);
 }
 
 .homepage, .archivepage{
@@ -114,8 +138,14 @@ button {
   font-size: medium;
   padding: 12px 16px;
   border-radius: 5px;
+  background-color: var(--bg-search);
+  color: var(--font-color);
   border: none;
   box-shadow: var(--shadowbox);
+}
+
+.search-bar::placeholder {
+  color: var(--font-color);
 }
 
 .search-bar:focus {
@@ -140,10 +170,10 @@ button {
   flex-direction: column;
   gap: 1rem;
   padding: 14px 10px 10px 10px;
-  background-color: white;
   border-radius: 5px;
   border-top: orangered 5px solid;
   box-shadow: var(--shadowbox);
+  color: var(--font-color);
   width: 280px;
   height: 200px;
   max-height: 200px;
@@ -154,10 +184,6 @@ button {
   background-color: lightgrey;
   transition: all 0.5s;
   scale: 1.03;
-}
-
-.note-item h3 {
-  font-size: 1.2rem;
   color: black;
 }
 
@@ -192,7 +218,7 @@ button {
 
 .detailpage h1 {
   font-size: 4rem;
-  color: black;
+  color: var(--font-color);
 }
 
 .detailpage .detailpage_date {
@@ -346,6 +372,8 @@ button {
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
+  color: var(--font-color);
+  background-color: var(--bg-color);
 }
 
 .addpage form input {
@@ -394,4 +422,16 @@ button {
   .addpage form {
     width: 100%;
   }
+}
+
+.language-toggle {
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  color: var(--bg-color);
+  background-color: var(--font-color);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s;
 }

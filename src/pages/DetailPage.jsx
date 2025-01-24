@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   getNote,
@@ -11,6 +11,7 @@ import { showFormattedDate } from "../utils";
 import DetailPageActBtn from "../components/DetailPageActBtn";
 import Toast from "../components/Toast";
 import PropTypes from "prop-types";
+import LanguageContext from "../contexts/LanguageContext";
 
 function DetailPage() {
   const { id } = useParams();
@@ -18,9 +19,14 @@ function DetailPage() {
   const note = getNote(id);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
+  const { language } = useContext(LanguageContext);
 
   if (!note) {
-    return <p>Note not found!</p>;
+    return (
+      <p>
+        {language === "EN" ? "Note not found!" : "Catatan tidak ditemukan!"}
+      </p>
+    );
   }
 
   const showToast = (message) => {
@@ -65,7 +71,7 @@ function DetailPage() {
     <div className="detailpage">
       <div>
         <button onClick={handleBackClick} className="back-button">
-          <FaArrowLeft /> Back
+          <FaArrowLeft /> {language === "EN" ? "Back" : "Kembali"}
         </button>
         <h1>{note.title}</h1>
         <p className="detailpage_date">{showFormattedDate(note.createdAt)}</p>
@@ -81,12 +87,16 @@ function DetailPage() {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <p>Are you sure you want to delete this note?</p>
+            <p>
+              {language === "EN"
+                ? "Are you sure you want to delete this note?"
+                : "Apakah Kamu Yakin ingin Mengapus Catatan?"}
+            </p>
             <button className="black" onClick={handleModalConfirm}>
-              Yes
+              {language === "EN" ? "Yes" : "Ya"}
             </button>
             <button className="red" onClick={handleModalClose}>
-              No
+              {language === "EN" ? "No" : "Tidak"}
             </button>
           </div>
         </div>
