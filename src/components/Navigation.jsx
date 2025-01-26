@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiHome, FiPlusCircle } from "react-icons/fi";
-import { FiArchive } from "react-icons/fi";
+import { FiHome, FiArchive } from "react-icons/fi";
 
 const Navigation = () => {
   const location = useLocation();

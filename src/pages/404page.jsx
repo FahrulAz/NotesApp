@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import LanguageContext from "../contexts/LanguageContext";
 
 function ErrorPage() {
-  const { language } = useContext(Language);
+  const { language } = useContext(LanguageContext);
 
   return (
     <div className="errorpage">

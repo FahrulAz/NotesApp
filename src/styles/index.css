@@ -2,6 +2,7 @@
   --shadowbox: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   --font-color: #333;
   --bg-color: whitesmoke;
+  --bg-button: #007bff;
 }
 
 [data-theme='dark'] {
@@ -16,11 +17,22 @@
   box-sizing: border-box;
 }
 
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading p {
+  font-size: 1.5rem;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-color);
   color: var(--font-color);
-  transition: all 0.5s;
+  transition: 0.5s;
 }
 
 .container {
@@ -49,6 +61,24 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.user-info span {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--font-color);
+
+}
+
+.user-info button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--font-color);
 }
 
 .theme-toggle {
@@ -387,7 +417,7 @@ button {
 .addpage form button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: var(--bg-button);
   color: white;
   border: none;
   border-radius: 5px;
@@ -434,4 +464,46 @@ button {
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.3s;
+}
+
+/* auth */
+.login-page h2, .register-page h2 {
+    font-weight: normal;
+    font-size: 2rem;
+    text-align: center;
+}
+   
+.login-input, .register-input, .contact-input {
+    margin-top: 16px;
+}
+   
+.login-input input, .register-input input, .contact-input input {
+    display: block;
+    padding: 16px;
+    width: 100%;
+    margin: 8px 0;
+    font-size: 24px;
+    background-color: transparent;
+    border: 2px solid var(--font-color);
+    border-radius: 8px;
+}
+
+.login-input button, .register-input button, .contact-input button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 24px;
+    background-color: var(--bg-button);
+    border-radius: 8px;
+    margin: 16px 0;
+    color: var(--font-color);
+    font-weight: bold;
+    transition: all 0.3s;
+}
+.login-input button:hover, .register-input button:hover, .contact-input button:hover {
+    background-color: #0056b3;
+}
+
+.not_found {
+  text-align: center;
 }
