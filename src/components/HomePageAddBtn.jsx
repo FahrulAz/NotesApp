@@ -20,7 +20,7 @@ function HomePageAddBtn() {
 }
 
 HomePageAddBtn.propTypes = {
-  navigate: PropTypes.func.isRequired,
+  navigate: PropTypes.func,
 };
 
 export default HomePageAddBtn;

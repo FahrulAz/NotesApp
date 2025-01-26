@@ -14,11 +14,60 @@ import useAuth from "./hooks/useAuth";
 import useLoading from "./hooks/useLoading";
 import PropTypes from "prop-types";
 
-function App() {
-  const { authedUser, login, logout } = useAuth();
-  const initializing = useLoading();
+// function App() {
+//   const { authedUser, login, logout } = useAuth();
+//   const initializing = useLoading();
 
-  if (initializing) {
+//   if (initializing) {
+//     return (
+//       <div className="loading">
+//         <p>Loading...</p>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <ThemeProvider>
+//       <LanguageProvider>
+//         <div>
+//           <header>
+//             <Header userName={authedUser?.name} onButtonClick={logout} />
+//           </header>
+
+//           <main className="container">
+//             <Routes>
+//               {authedUser === null && (
+//                 <>
+//                   <Route
+//                     path="/*"
+//                     element={<LoginPage loginSuccess={login} />}
+//                   />
+//                   <Route path="/register" element={<RegisterPage />} />
+//                 </>
+//               )}
+
+//               {authedUser !== null && (
+//                 <>
+//                   <Route path="/" element={<HomePage />} />
+//                   <Route path="/new" element={<AddPage />} />
+//                   <Route path="/archive" element={<ArchivePage />} />
+//                   <Route path="/notes/:id" element={<DetailPage />} />
+//                 </>
+//               )}
+
+//               <Route path="*" element={<ErrorPage />} />
+//             </Routes>
+//           </main>
+//         </div>
+//       </LanguageProvider>
+//     </ThemeProvider>
+//   );
+// }
+
+function App() {
+  const { authedUser, login, logout, isLoading } = useAuth();
+
+  if (isLoading) {
     return (
       <div className="loading">
         <p>Loading...</p>
@@ -64,10 +113,11 @@ function App() {
   );
 }
 
+
 App.propTypes = {
   authedUser: PropTypes.object,
-  login: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired,
+  login: PropTypes.func,
+  logout: PropTypes.func,
   initializing: PropTypes.bool,
 };
 
