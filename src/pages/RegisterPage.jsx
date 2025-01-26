@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import RegisterForm from "../components/forms/RegisterForm";
 import { register } from "../utils/network-data";
 import LanguageContext from "../contexts/LanguageContext";
-import PropTypes from "prop-types";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -18,20 +17,16 @@ function RegisterPage() {
 
   return (
     <section className="register-page">
-      <h2>{language === "EN" ? "Register Account" : "Daftar Akun..."}</h2>
+      <h2>{language === "EN" ? "Register Account" : "Daftar Akun"}</h2>
       <RegisterForm register={registerHandler} />
       <p className="not_found">
         {language === "EN" ? "Already have an account?" : "Sudah punya akun?"}{" "}
         <Link to="/" className="back_home">
-          Login
+          {language === "EN" ? "Login" : "Masuk"}
         </Link>
       </p>
     </section>
   );
 }
-
-RegisterPage.propTypes = {
-  registerSuccess: PropTypes.func.isRequired,
-};
 
 export default RegisterPage;

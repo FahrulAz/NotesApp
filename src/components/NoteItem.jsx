@@ -12,7 +12,7 @@ const limitWords = (text, limit) => {
 };
 
 function NoteItem({ id, title, body, createdAt }) {
-  body = limitWords(body, 15);
+  body = limitWords(body, 20);
 
   return (
     <Link to={`/notes/${id}`} className="note-item_link">
